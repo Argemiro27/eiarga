@@ -23,10 +23,6 @@ Route.get('/', () => {
 Route.post('/register', 'AuthController.register');
 Route.post("/authenticate", "AuthController.authenticate");
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 2b96b8773ca9391a7ddae4bc68920effecbf512f
 Route.group(() => {
   Route.resource('cadastrarnoticia', 'CadastrarNoticiaController')
   Route.resource('qualseutime', 'QualseutimeController')
