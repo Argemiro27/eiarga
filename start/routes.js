@@ -23,3 +23,8 @@ Route.get('/', () => {
 Route.post('/register', 'AuthController.register');
 Route.post("/authenticate", "AuthController.authenticate");
 Route.resource('qualseutime', 'QualseutimeController')
+
+Route.group(() => {
+  Route.resource('cadastrarnoticia', 'CadastrarNoticiaController')
+  Route.resource('qualseutime', 'QualseutimeController')
+}).middleware(["auth"]);
