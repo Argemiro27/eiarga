@@ -75,7 +75,7 @@ class QualSeuTimeController {
   async update ({ params, request, response }) {
     const time = await Time.findOrFail(params.id)
     const {nome}=request.only(["nome"])
-    time.id_qualseutime = id_qualseutime
+    time.id_qualseutime = id_qualseutimes
     time.nome = nome
     await time.save()
     return time
