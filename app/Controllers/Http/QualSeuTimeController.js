@@ -3,7 +3,7 @@
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
-const Time = use("App/QualSeuTime/Time")
+const Time = use("App/Models/Qualseutime")
 
 
 /**
@@ -33,9 +33,9 @@ class QualSeuTimeController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
-    const dados = request.only(["nome"])
-    const time = await Time.create(dados)
+  async store ({ request, response, auth }) {
+    const {nome} = request.only(["nome"])
+    const time = await Time.create({nome,user_id:auth.user.id})
     return time
   }
 
