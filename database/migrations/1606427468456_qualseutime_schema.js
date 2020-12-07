@@ -4,7 +4,7 @@
 const Schema = use('Schema')
 class QualseutimeSchema extends Schema {
   up () {
-    this.create('qualseutime', (table) => {
+    this.create('qualseutimes', (table) => {
       table.increments()
       table.string('nome',50).notNullable().unique()
       table
@@ -20,7 +20,7 @@ class QualseutimeSchema extends Schema {
   }
  
   down () {
-    this.drop('qualseutime')
+    this.drop('qualseutimes')
   }
 }
  
