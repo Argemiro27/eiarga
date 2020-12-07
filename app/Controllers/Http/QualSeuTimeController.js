@@ -72,6 +72,7 @@ class QualSeuTimeController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
+
   async update ({ params, request, response }) {
     const time = await Time.findOrFail(params.id)
     const {nome}=request.only(["nome"])
