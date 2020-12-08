@@ -20,7 +20,7 @@ class QualSeuTimeController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    const time = await Time.all()
+    const Time = await Time.all()
     return time
   }
 
