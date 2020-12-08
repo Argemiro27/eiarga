@@ -13,8 +13,4 @@ class Qualseutime extends Model {
     }
 }
 
-<<<<<<< HEAD
 module.exports = Qualseutime
-=======
-module.exports = Qualseutime
->>>>>>> 2b96b8773ca9391a7ddae4bc68920effecbf512f
