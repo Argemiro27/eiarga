@@ -13,4 +13,4 @@ class Qualseutime extends Model {
     }
 }
 
-module.exports = Qualseutime
+module.exports = QualSeuTime
