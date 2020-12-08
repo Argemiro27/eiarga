@@ -25,5 +25,5 @@ Route.post("/authenticate", "AuthController.authenticate");
 
 Route.group(() => {
   Route.resource('cadastrarnoticia', 'CadastrarNoticiaController')
-  Route.resource('qualseutime', 'QualseutimeController')
+  Route.resource('qualseutime', 'QualSeuTimeController')
 }).middleware(["auth"]);
