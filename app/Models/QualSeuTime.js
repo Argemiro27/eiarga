@@ -3,7 +3,7 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-class Qualseutime extends Model {
+class qualseutime extends Model {
 
     user(){
         return this.belongsToMany('App/Models/User')
@@ -13,4 +13,4 @@ class Qualseutime extends Model {
     }
 }
 
-module.exports = Qualseutime
+module.exports = qualseutime
