@@ -3,15 +3,15 @@
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
-const Noticia = use("App/Models/Cadastrarnoticia")
+const Noticia = use("App/Models/Noticia")
 
 /**
- * Resourceful controller for interacting with cadastrarnoticias
+ * Resourceful controller for interacting with noticias
  */
-class CadastrarNoticiaController {
+class NoticiaController {
   /**
-   * Show a list of all cadastrarnoticias.
-   * GET cadastrarnoticias
+   * Show a list of all noticias.
+   * GET noticias
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -24,8 +24,8 @@ class CadastrarNoticiaController {
   }
 
   /**
-   * Render a form to be used for creating a new cadastrarnoticia.
-   * GET cadastrarnoticias/create
+   * Render a form to be used for creating a new noticia.
+   * GET noticias/create
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -33,12 +33,11 @@ class CadastrarNoticiaController {
    * @param {View} ctx.view
    */
   async create ({ request, response, view }) {
-
   }
 
   /**
-   * Create/save a new cadastrarnoticia.
-   * POST cadastrarnoticias
+   * Create/save a new noticia.
+   * POST noticias
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -51,8 +50,8 @@ class CadastrarNoticiaController {
   }
 
   /**
-   * Display a single cadastrarnoticia.
-   * GET cadastrarnoticias/:id
+   * Display a single noticia.
+   * GET noticias/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -65,8 +64,8 @@ class CadastrarNoticiaController {
   }
 
   /**
-   * Render a form to update an existing cadastrarnoticia.
-   * GET cadastrarnoticias/:id/edit
+   * Render a form to update an existing noticia.
+   * GET noticias/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -77,14 +76,13 @@ class CadastrarNoticiaController {
   }
 
   /**
-   * Update cadastrarnoticia details.
-   * PUT or PATCH cadastrarnoticias/:id
+   * Update noticia details.
+   * PUT or PATCH noticias/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-
   async update ({ params, request, response }) {
     const noticia1 = await Noticia.findOrFail(params.id);
     const { titulo, time_id,datahora, noticia,descricao } = request.only([
@@ -104,8 +102,8 @@ class CadastrarNoticiaController {
   }
 
   /**
-   * Delete a cadastrarnoticia with id.
-   * DELETE cadastrarnoticias/:id
+   * Delete a noticia with id.
+   * DELETE noticias/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -118,4 +116,4 @@ class CadastrarNoticiaController {
   }
 }
 
-module.exports = CadastrarNoticiaController
+module.exports = NoticiaController

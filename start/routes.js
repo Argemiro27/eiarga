@@ -24,6 +24,6 @@ Route.post('/register', 'AuthController.register');
 Route.post("/authenticate", "AuthController.authenticate");
 
 Route.group(() => {
-  Route.resource('cadastrarnoticia', 'CadastrarNoticiaController')
+  Route.resource('noticia', 'NoticiaController')
   Route.get('time', 'TimeController.index')
 }).middleware(["auth"]);

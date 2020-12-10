@@ -1,11 +1,11 @@
 'use strict'
- 
+
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
- 
-class CadastrarnoticiaSchema extends Schema {
+
+class NoticiaSchema extends Schema {
   up () {
-    this.create('cadastrarnoticias', (table) => {
+    this.create('noticias', (table) => {
       table.increments()
       table.string('titulo',50).notNullable().unique()
       table.datetime('datahora').notNullable()
@@ -22,10 +22,10 @@ class CadastrarnoticiaSchema extends Schema {
       table.timestamps()
     })
   }
- 
+
   down () {
-    this.drop('cadastrarnoticias')
+    this.drop('noticias')
   }
 }
- 
-module.exports = CadastrarnoticiaSchema
+
+module.exports = NoticiaSchema
