@@ -86,7 +86,7 @@ class CadastrarNoticiaController {
    */
 
   async update ({ params, request, response }) {
-    const noticia = await Noticia.findOrFail(params.id);
+    const noticia1 = await Noticia.findOrFail(params.id);
     const { titulo, time_id,datahora, noticia,descricao } = request.only([
       "titulo", 
       "time_id",
@@ -94,13 +94,13 @@ class CadastrarNoticiaController {
       "noticia",
       "descricao"
     ]);
-    noticia.titulo = titulo;
-    noticia.time_id = time_id;
-    noticia.descricao = descricao;
-    noticia.datahora = datahora;
-    noticia.noticia = noticia;
-    await noticia.save();
-    return noticia;
+    noticia1.titulo = titulo;
+    noticia1.time_id = time_id;
+    noticia1.descricao = descricao;
+    noticia1.datahora = datahora;
+    noticia1.noticia = noticia;
+    await noticia1.save();
+    return noticia1;
   }
 
   /**
