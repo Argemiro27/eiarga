@@ -3,16 +3,14 @@
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
-const Time = use("App/Models/Qualseutime")
-
 
 /**
- * Resourceful controller for interacting with qualseutimes
+ * Resourceful controller for interacting with times
  */
-class QualSeuTimeController {
+class TimeController {
   /**
-   * Show a list of all qualseutimes.
-   * GET qualseutimes
+   * Show a list of all times.
+   * GET times
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -20,28 +18,34 @@ class QualSeuTimeController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    const time = await Time.all()
-    return time
   }
 
+  /**
+   * Render a form to be used for creating a new time.
+   * GET times/create
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+  async create ({ request, response, view }) {
+  }
 
   /**
-   * Create/save a new qualseutime.
-   * POST qualseutimes
+   * Create/save a new time.
+   * POST times
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response, auth }) {
-    const {nome} = request.only(["nome"])
-    const time = await Time.create({nome,user_id:auth.user.id})
-    return time
+  async store ({ request, response }) {
   }
 
   /**
-   * Display a single qualseutime.
-   * GET qualseutimes/:id
+   * Display a single time.
+   * GET times/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -49,12 +53,11 @@ class QualSeuTimeController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
-    const time = await Time.findOrFail(params.id)
   }
 
   /**
-   * Render a form to update an existing qualseutime.
-   * GET qualseutimes/:id/edit
+   * Render a form to update an existing time.
+   * GET times/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -65,34 +68,26 @@ class QualSeuTimeController {
   }
 
   /**
-   * Update qualseutime details.
-   * PUT or PATCH qualseutimes/:id
+   * Update time details.
+   * PUT or PATCH times/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
-    const time = await Time.findOrFail(params.id)
-    const {nome}=request.only(["nome"])
-    time.nome = nome
-    await time.save()
-    return time
   }
 
   /**
-   * Delete a qualseutime with id.
-   * DELETE qualseutimes/:id
+   * Delete a time with id.
+   * DELETE times/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
-    const time = await Time.findOrFail(params.id)
-    await time.delete()
-    return time
   }
 }
 
-module.exports = QualSeuTimeController
+module.exports = TimeController

@@ -3,6 +3,7 @@
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
+const Noticia = use("App/Models/Cadastrarnoticia")
 
 /**
  * Resourceful controller for interacting with cadastrarnoticias
@@ -18,6 +19,8 @@ class CadastrarNoticiaController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
+    const noticias = await Noticia.all();
+    return noticias;
   }
 
   /**
@@ -30,6 +33,7 @@ class CadastrarNoticiaController {
    * @param {View} ctx.view
    */
   async create ({ request, response, view }) {
+
   }
 
   /**
@@ -41,6 +45,9 @@ class CadastrarNoticiaController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+    const data = request.only(["titulo", "time_id","datahora", "noticia","descricao"]);
+    const noticia = await Noticia.create(data);
+    return noticia;
   }
 
   /**
@@ -53,6 +60,8 @@ class CadastrarNoticiaController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
+    const noticia = await Noticia.findOrFail(params.id);
+    return noticia;
   }
 
   /**
@@ -75,7 +84,23 @@ class CadastrarNoticiaController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
+
   async update ({ params, request, response }) {
+    const noticia = await Noticia.findOrFail(params.id);
+    const { titulo, time_id,datahora, noticia,descricao } = request.only([
+      "titulo", 
+      "time_id",
+      "datahora", 
+      "noticia",
+      "descricao"
+    ]);
+    noticia.titulo = titulo;
+    noticia.time_id = time_id;
+    noticia.descricao = descricao;
+    noticia.datahora = datahora;
+    noticia.noticia = noticia;
+    await noticia.save();
+    return noticia;
   }
 
   /**
@@ -87,6 +112,9 @@ class CadastrarNoticiaController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
+    const noticia = await Noticia.findOrFail(params.id);
+    await noticia.delete();
+    return noticia;
   }
 }
 

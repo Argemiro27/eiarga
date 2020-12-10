@@ -3,11 +3,11 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-class CadastrarNoticia extends Model {
-    qualseutime(){
-        return this.belongsToMany('App/Models/Qualseutime')
+class Cadastrarnoticia extends Model {
+    time(){
+        return this.belongsToMany('App/Models/Time')
     }
     
 }
 
-module.exports = CadastrarNoticia
+module.exports = Cadastrarnoticia

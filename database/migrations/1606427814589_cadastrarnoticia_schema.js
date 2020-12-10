@@ -8,14 +8,14 @@ class CadastrarnoticiaSchema extends Schema {
     this.create('cadastrarnoticias', (table) => {
       table.increments()
       table.string('titulo',50).notNullable().unique()
-      table.datetime('datahora',6).notNullable().unique()
+      table.datetime('datahora').notNullable()
       table.string('descricao',50).notNullable().unique()
       table.string('noticia',300).notNullable().unique()
       table
-      .integer("qualseutime_id")
+      .integer("time_id")
       .unsigned()
       .references("id")
-      .inTable("qualseutimes")
+      .inTable("times")
       .onUpdate("cascade")
       .onDelete("cascade")
       .notNullable();

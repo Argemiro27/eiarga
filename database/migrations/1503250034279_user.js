@@ -11,6 +11,15 @@ class UserSchema extends Schema {
       table.string('email', 254).notNullable().unique()
       table.string('password', 60).notNullable()
       table.timestamps()
+      table
+      .integer("time_id")
+      .unsigned()
+      .references("id")
+      .inTable("times")
+      .onUpdate("cascade")
+      .onDelete("cascade")
+      .notNullable();
+      table.timestamps()
     })
   }
 
