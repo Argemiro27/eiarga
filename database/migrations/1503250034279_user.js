@@ -10,7 +10,6 @@ class UserSchema extends Schema {
       table.string('username', 80).notNullable().unique()
       table.string('email', 254).notNullable().unique()
       table.string('password', 60).notNullable()
-      table.timestamps()
       table
       .integer("time_id")
       .unsigned()
@@ -18,7 +17,7 @@ class UserSchema extends Schema {
       .inTable("times")
       .onUpdate("cascade")
       .onDelete("cascade")
-      .notNullable();
+      .nullable();
       table.timestamps()
     })
   }
