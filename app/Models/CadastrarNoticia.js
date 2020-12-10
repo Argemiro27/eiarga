@@ -5,7 +5,7 @@ const Model = use('Model')
 
 class Cadastrarnoticia extends Model {
     time(){
-        return this.belongsToMany('App/Models/Time')
+        return this.belongsTo('App/Models/Time')
     }
     
 }
