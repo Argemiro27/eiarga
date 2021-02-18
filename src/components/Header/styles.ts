@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  background-color: var(--main);
+  background-color: var(--green);
   height: 60px;
   div {
     svg {
