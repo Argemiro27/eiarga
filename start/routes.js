@@ -22,8 +22,9 @@ Route.get('/', () => {
 
 Route.post('/register', 'AuthController.register');
 Route.post("/authenticate", "AuthController.authenticate");
+Route.get('time', 'TimeController.index')
+Route.get('noticia/:id','NoticiaController.show')
 
 Route.group(() => {
-  Route.resource('noticia', 'NoticiaController')
-  Route.get('time', 'TimeController.index')
+  Route.resource('noticia', 'NoticiaController').except(["show"])
 }).middleware(["auth"]);
