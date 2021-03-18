@@ -25,6 +25,7 @@
     "@adonisjs/ignitor": "^2.0.8",
     "@adonisjs/lucid": "^6.1.3",
     "mysql": "^2.18.1",
+    "node-modules": "^1.0.1",
     "pg": "^8.5.1",
     "stack": "^0.1.0",
     "url-parse": "^1.4.7"
