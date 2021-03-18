@@ -116,4 +116,4 @@ class NoticiaController {
   }
 }
 
-module.exports = NoticiaController
+module.exports = NoticiaController;

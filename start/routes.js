@@ -23,8 +23,16 @@ Route.get('/', () => {
 Route.post('/register', 'AuthController.register');
 Route.post("/authenticate", "AuthController.authenticate");
 Route.get('time', 'TimeController.index')
+Route.get('/times/:id/noticias','TimeController.noticias');
 Route.get('noticia/:id','NoticiaController.show')
 
 Route.group(() => {
   Route.resource('noticia', 'NoticiaController').except(["show"])
+  Route.resource("times", "TimeController").only([
+    "show",
+    "store",
+    "update",
+    "destroy",
+  ]);
+
 }).middleware(["auth"]);
