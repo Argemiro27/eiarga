@@ -19,7 +19,7 @@ class NoticiaController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    const noticias = await Noticia.all();
+    const noticias = await Noticia.query().with(['time']).fetch();
     return noticias;
   }
 
